@@ -12,7 +12,7 @@ class AccountTextField extends StatefulWidget {
   final FocusNode focusNode;
   final Function() onTextChanged;
   final Function() onPrefixPressed;
-  final String areaCode;
+  final String prefixText;
   final TextEditingController controller;
 
   final Color backgroundColor;
@@ -24,7 +24,7 @@ class AccountTextField extends StatefulWidget {
     @required this.controller,
     this.onTextChanged,
     this.focusNode,
-    this.areaCode,
+    this.prefixText,
     this.onPrefixPressed,
     this.backgroundColor,
     this.focusedBorder,
@@ -57,36 +57,22 @@ class _AccountTextFieldState extends State<AccountTextField> {
           decoration: InputDecoration(
             counterText: "",
             hintText: S.of(context).loginAccountHint,
-            contentPadding: EdgeInsets.only(top: 16, bottom: 16),
+            contentPadding: EdgeInsets.only(top: 20),
             hintStyle: TextStyles.textGray400_w400_14,
             focusedBorder: widget.focusedBorder ?? BorderStyles.underlineInputMain,
             enabledBorder: widget.enabledBorder ?? BorderStyles.underlineInputGray,
-            prefixIcon: InkWell(
-                onTap: () {
-                  widget.focusNode.unfocus();
-                  widget.focusNode.canRequestFocus = false;
-                  Future.delayed(Duration(milliseconds: 100), () {
-                    widget.focusNode.canRequestFocus = true;
-                  });
-                  widget.onPrefixPressed();
-                },
-                child: Container(
-                    padding: EdgeInsets.all(10.0),
-                    constraints: BoxConstraints(minWidth: 80),
-                    child:Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(right: 2),
-                            child: Text(widget.areaCode, style: TextStyles.textBlack14),
-                          ),
-                          Icon(Icons.arrow_drop_down, color: Colours.text_black, size: 18),
-                        ]
-                    )
-
-                )),
+            prefixIcon: Container(
+                child: FlatButton(
+                  padding: EdgeInsets.all(10.0),
+                  minWidth: 80,
+                  onPressed: null,
+                  child: Container(
+                      constraints: BoxConstraints(maxWidth: 60),
+                      alignment: Alignment.centerLeft,
+                      child:Text(widget.prefixText ?? S.of(context).loginAccount, style: TextStyles.textBlack14)
+                  ),
+                )
+            ),
             suffixIcon: !_isEmptyText() ? IconButton(
               iconSize: 20.0,
               icon: Icon(Icons.close, color: Colours.gray_400, size: 20),

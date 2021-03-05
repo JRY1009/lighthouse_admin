@@ -69,7 +69,7 @@ class _AccountTextFieldState extends State<PwdTextField> {
           decoration: InputDecoration(
               counterText: "",
               hintText: widget.hintText ?? S.of(context).passwordHint,
-              contentPadding: EdgeInsets.only(top: 16, bottom: 16),
+              contentPadding: EdgeInsets.only(top: 20),
               hintStyle: widget.hintStyle ?? TextStyles.textGray400_w400_14,
               focusedBorder: widget.focusedBorder ?? BorderStyles.underlineInputMain,
               enabledBorder: widget.enabledBorder ?? BorderStyles.underlineInputGray,

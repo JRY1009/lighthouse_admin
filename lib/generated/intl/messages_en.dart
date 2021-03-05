@@ -21,6 +21,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "appName" : MessageLookupByLibrary.simpleMessage("灯塔后台管理系统"),
+    "clickRegister" : MessageLookupByLibrary.simpleMessage("点此注册"),
+    "close" : MessageLookupByLibrary.simpleMessage("关闭"),
     "getVerifyCode" : MessageLookupByLibrary.simpleMessage("获取验证码"),
     "login" : MessageLookupByLibrary.simpleMessage("登录"),
     "loginAccount" : MessageLookupByLibrary.simpleMessage("账号"),
@@ -28,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginAccountHint" : MessageLookupByLibrary.simpleMessage("请输入账号"),
     "logout" : MessageLookupByLibrary.simpleMessage("退出登录"),
     "logoutConfirm" : MessageLookupByLibrary.simpleMessage("确定要退出当前账号吗？"),
+    "noAccount" : MessageLookupByLibrary.simpleMessage("没有账号？"),
     "notFoundPage" : MessageLookupByLibrary.simpleMessage("Page not found"),
     "password" : MessageLookupByLibrary.simpleMessage("密码"),
     "passwordError" : MessageLookupByLibrary.simpleMessage("密码不能为空!"),

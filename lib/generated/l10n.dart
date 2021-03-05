@@ -35,6 +35,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `灯塔后台管理系统`
+  String get appName {
+    return Intl.message(
+      '灯塔后台管理系统',
+      name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Page not found`
   String get notFoundPage {
     return Intl.message(
@@ -225,11 +235,41 @@ class S {
     );
   }
 
+  /// `没有账号？`
+  String get noAccount {
+    return Intl.message(
+      '没有账号？',
+      name: 'noAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `点此注册`
+  String get clickRegister {
+    return Intl.message(
+      '点此注册',
+      name: 'clickRegister',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `搜索`
   String get search {
     return Intl.message(
       '搜索',
       name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `关闭`
+  String get close {
+    return Intl.message(
+      '关闭',
+      name: 'close',
       desc: '',
       args: [],
     );

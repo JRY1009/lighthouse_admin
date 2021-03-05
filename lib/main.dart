@@ -1,10 +1,12 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:lighthouse_admin/generated/l10n.dart';
 import 'package:lighthouse_admin/global/theme_provider.dart';
 import 'package:lighthouse_admin/router/routers.dart';
+import 'package:lighthouse_admin/ui/common/page/not_found_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +29,10 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      onGenerateRoute: (settings) => Routers.onGenerateRoute(settings),
+      initialRoute: Routers.loginPage,
+      unknownRoute: GetPage(name: Routers.notFoundPage, page: () => NotFoundPage()),
+      getPages: Routers.pages,
+      routingCallback: (routing) => Routers.onRoutingCallback(routing),
     );
   }
 }

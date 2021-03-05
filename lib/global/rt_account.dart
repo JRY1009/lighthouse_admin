@@ -32,4 +32,7 @@ class RTAccount {
     }
   }
 
+  Account loadAccount() {
+    return null;
+  }
 }

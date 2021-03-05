@@ -19,6 +19,7 @@ class CommonScrollView extends StatelessWidget {
     @required this.children,
     this.padding,
     this.physics = const BouncingScrollPhysics(),
+    this.mainAxisAlignment = MainAxisAlignment.start,
     this.crossAxisAlignment = CrossAxisAlignment.start,
     this.bottomButton,
     this.keyboardConfig,
@@ -31,6 +32,7 @@ class CommonScrollView extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final ScrollPhysics physics;
   final CrossAxisAlignment crossAxisAlignment;
+  final MainAxisAlignment mainAxisAlignment;
   final Widget bottomButton;
   final KeyboardActionsConfig keyboardConfig;
   /// 键盘外部按下将其关闭
@@ -46,10 +48,12 @@ class CommonScrollView extends StatelessWidget {
     Widget contents = shotController != null ? ShotView(
       controller: shotController,
       child: Column(
+        mainAxisAlignment: mainAxisAlignment,
         crossAxisAlignment: crossAxisAlignment,
         children: children,
       ),
     ): Column(
+      mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       children: children,
     );
@@ -73,14 +77,23 @@ class CommonScrollView extends StatelessWidget {
       );
 
     } else {
-      contents = ScrollConfiguration(
-        behavior: OverScrollBehavior(),
-        child: SingleChildScrollView(
+      if (kIsWeb) {
+        contents = SingleChildScrollView(
           padding: padding,
           physics: physics,
           child: contents,
-        ),
-      );
+        );
+
+      } else {
+        contents = ScrollConfiguration(
+          behavior: OverScrollBehavior(),
+          child: SingleChildScrollView(
+            padding: padding,
+            physics: physics,
+            child: contents,
+          ),
+        );
+      }
     }
 
     if (bottomButton != null) {
