@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:lighthouse_admin/generated/l10n.dart';
 import 'package:lighthouse_admin/global/rt_account.dart';
 import 'package:lighthouse_admin/model/account.dart';
+import 'package:lighthouse_admin/mvvm/base_page.dart';
 import 'package:lighthouse_admin/res/colors.dart';
 import 'package:lighthouse_admin/res/gaps.dart';
 import 'package:lighthouse_admin/res/styles.dart';
@@ -13,6 +15,7 @@ import 'package:lighthouse_admin/ui/common/widget/button/gradient_button.dart';
 import 'package:lighthouse_admin/ui/common/widget/common_scroll_view.dart';
 import 'package:lighthouse_admin/ui/common/widget/textfield/account_text_field.dart';
 import 'package:lighthouse_admin/ui/common/widget/textfield/pwd_text_field.dart';
+import 'package:lighthouse_admin/ui/mine/viewmodel/login_model.dart';
 import 'package:lighthouse_admin/utils/object_util.dart';
 import 'package:lighthouse_admin/utils/other_util.dart';
 
@@ -21,41 +24,51 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
 
-  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _pwdController = TextEditingController();
-  final FocusNode _phoneNode = FocusNode();
+  final FocusNode _emailNode = FocusNode();
   final FocusNode _pwdNode = FocusNode();
 
-  String _area_code;
   bool _loginEnabled = false;
+
+  LoginModel _loginModel = Get.put(LoginModel());
 
   @override
   void initState() {
     super.initState();
 
     initView();
+    initViewModel();
+
     _checkInput();
   }
 
   void initView() {
     Account account = RTAccount.instance().loadAccount();
-    if (account != null) {
-      // var t = account.phone?.split(' ');
-      // _area_code = t?.first;
-      // _phoneController.text = t?.last;
-      _area_code = '+86';
-      _phoneController.text = account.phone;
-    } else {
-      _area_code = '+86';
-    }
+    _emailController.text = account?.phone;
   }
 
+  void initViewModel() {
+    _loginModel.addListener(() {
+      if (_loginModel.isBusy) {
+        showProgress(content: S.current.logingin);
+      } else if (_loginModel.isError) {
+        closeProgress();
+        BotToast.showText(text: _loginModel.viewStateError.message);
+
+      } else if (_loginModel.isSuccess) {
+        closeProgress();
+
+        Get.offNamed(Routers.settingPage);
+      }
+    });
+  }
 
   void _checkInput() {
     setState(() {
-      if (ObjectUtil.isEmpty(_phoneController.text)) {
+      if (ObjectUtil.isEmpty(_emailController.text)) {
         _loginEnabled = false;
       } else {
         _loginEnabled = true;
@@ -64,19 +77,10 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _login() {
-    String phone = _phoneController.text;
-    String pwd = _pwdController.text;
-  }
+    String email = _emailController.text;
+    String password = _pwdController.text;
 
-  void _selectArea() {
-  }
-
-  void _smsLogin() {
-
-  }
-
-  void _forgetPwd() {
-
+    _loginModel.login(email, password);
   }
 
   void _jump2Register() {
@@ -106,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                 color: Colors.white,
               ),
               child: CommonScrollView(
-                keyboardConfig: OtherUtil.getKeyboardActionsConfig(context, <FocusNode>[_phoneNode, _pwdNode]),
+                keyboardConfig: OtherUtil.getKeyboardActionsConfig(context, <FocusNode>[_emailNode, _pwdNode]),
                 padding: const EdgeInsets.only(left: 24.0, right: 24.0, bottom: 20.0),
                 children: <Widget>[
                   Gaps.vGap16,
@@ -156,10 +160,9 @@ class _LoginPageState extends State<LoginPage> {
                   Gaps.vGap32,
 
                   AccountTextField(
-                    focusNode: _phoneNode,
-                    controller: _phoneController,
+                    focusNode: _emailNode,
+                    controller: _emailController,
                     onTextChanged: _checkInput,
-                    onPrefixPressed: _selectArea,
                   ),
                   Gaps.vGap16,
                   PwdTextField(

@@ -5,10 +5,13 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:lighthouse_admin/generated/l10n.dart';
 import 'package:lighthouse_admin/global/theme_provider.dart';
+import 'package:lighthouse_admin/global/user_event_controller.dart';
 import 'package:lighthouse_admin/router/routers.dart';
 import 'package:lighthouse_admin/ui/common/page/not_found_page.dart';
 
 void main() {
+
+  Get.put(UserEventController());
   runApp(MyApp());
 }
 

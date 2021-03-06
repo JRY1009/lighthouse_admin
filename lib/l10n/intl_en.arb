@@ -22,5 +22,7 @@
   "noAccount": "没有账号？",
   "clickRegister": "点此注册",
   "search": "搜索",
-  "close": "关闭"
+  "close": "关闭",
+  "loading": "加载中...",
+  "logingin": "登录中..."
 }

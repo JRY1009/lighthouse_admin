@@ -50,10 +50,9 @@ class _AccountTextFieldState extends State<AccountTextField> {
           focusNode: widget.focusNode,
           controller: widget.controller,
           style: TextStyles.textBlack14,
-          keyboardType: TextInputType.numberWithOptions(),
-          inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9]'))] ,
+          keyboardType: TextInputType.text,
           maxLines: 1,
-          maxLength: 11,
+          maxLength: 20,
           decoration: InputDecoration(
             counterText: "",
             hintText: S.of(context).loginAccountHint,
