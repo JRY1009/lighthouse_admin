@@ -34,7 +34,6 @@ class AccountEntity {
   }
 }
 
-
 class Account {
 
   //{"id":1,"email":"legend9999@126.com","phone":"13581696593","created_at":"2021-01-09 11:12:41","updated_at":"2021-01-09 11:12:42"}

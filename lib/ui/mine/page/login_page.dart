@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
 
   void initView() {
     Account account = RTAccount.instance().loadAccount();
-    _emailController.text = account?.phone;
+    _emailController.text = account?.email;
   }
 
   void initViewModel() {

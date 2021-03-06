@@ -28,7 +28,6 @@ class LoginModel extends ViewStateModel {
           loginResult = AccountEntity.fromJson(data);
           loginResult.admin_info.token = loginResult.token;
 
-          //account.token = headers.value(Apis.KEY_USER_TOKEN);
           RTAccount.instance().setActiveAccount(loginResult.admin_info);
           RTAccount.instance().saveAccount();
 
