@@ -54,14 +54,14 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
     _loginModel.addListener(() {
       if (_loginModel.isBusy) {
         showProgress(content: S.current.logingin);
+
       } else if (_loginModel.isError) {
         closeProgress();
         BotToast.showText(text: _loginModel.viewStateError.message);
 
       } else if (_loginModel.isSuccess) {
         closeProgress();
-
-        Get.offNamed(Routers.settingPage);
+        Get.offNamed(Routers.mainPage);
       }
     });
   }

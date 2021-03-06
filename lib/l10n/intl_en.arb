@@ -24,5 +24,9 @@
   "search": "搜索",
   "close": "关闭",
   "loading": "加载中...",
-  "logingin": "登录中..."
+  "logingin": "登录中...",
+  "home": "首页",
+  "menu": "菜单",
+  "setting": "设置",
+  "mine": "我的"
 }

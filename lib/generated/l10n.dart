@@ -294,6 +294,46 @@ class S {
       args: [],
     );
   }
+
+  /// `首页`
+  String get home {
+    return Intl.message(
+      '首页',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `菜单`
+  String get menu {
+    return Intl.message(
+      '菜单',
+      name: 'menu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `设置`
+  String get setting {
+    return Intl.message(
+      '设置',
+      name: 'setting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `我的`
+  String get mine {
+    return Intl.message(
+      '我的',
+      name: 'mine',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

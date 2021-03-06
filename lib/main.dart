@@ -7,14 +7,18 @@ import 'package:get_storage/get_storage.dart';
 import 'package:lighthouse_admin/generated/l10n.dart';
 import 'package:lighthouse_admin/global/theme_provider.dart';
 import 'package:lighthouse_admin/global/user_event_controller.dart';
+import 'package:lighthouse_admin/net/apis.dart';
 import 'package:lighthouse_admin/router/routers.dart';
 import 'package:lighthouse_admin/ui/common/page/not_found_page.dart';
+import 'package:lighthouse_admin/utils/log_util.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await GetStorage.init();
   Get.put(UserEventController());
+
+  LogUtil.init(isDebug: Apis.isTestEnvironment);
 
   runApp(MyApp());
 }
