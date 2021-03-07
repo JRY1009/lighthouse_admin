@@ -27,7 +27,7 @@ class _SettingPageState extends State<SettingPage> {
   }
 
   void _jump2Register() {
-    Get.offNamed(Routers.loginPage);
+    Get.back();
   }
 
   @override

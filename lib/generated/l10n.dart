@@ -334,6 +334,106 @@ class S {
       args: [],
     );
   }
+
+  /// `账号`
+  String get menuAccount {
+    return Intl.message(
+      '账号',
+      name: 'menuAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `链信息`
+  String get menuChain {
+    return Intl.message(
+      '链信息',
+      name: 'menuChain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `交易所`
+  String get menuExchange {
+    return Intl.message(
+      '交易所',
+      name: 'menuExchange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `友情链接`
+  String get menuFriends {
+    return Intl.message(
+      '友情链接',
+      name: 'menuFriends',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `里程碑`
+  String get menuMileStone {
+    return Intl.message(
+      '里程碑',
+      name: 'menuMileStone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `行情`
+  String get menuQuote {
+    return Intl.message(
+      '行情',
+      name: 'menuQuote',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `全球行情`
+  String get menuQuoteGlobal {
+    return Intl.message(
+      '全球行情',
+      name: 'menuQuoteGlobal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `热力图`
+  String get menuQuoteTreemap {
+    return Intl.message(
+      '热力图',
+      name: 'menuQuoteTreemap',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `短信`
+  String get menuSms {
+    return Intl.message(
+      '短信',
+      name: 'menuSms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `标签`
+  String get menuTag {
+    return Intl.message(
+      '标签',
+      name: 'menuTag',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
   }
 
   void _jump2Register() {
-    Get.offNamed(Routers.settingPage);
+    Get.toNamed(Routers.settingPage);
   }
 
   @override

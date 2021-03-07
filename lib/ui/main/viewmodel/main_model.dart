@@ -7,6 +7,8 @@ import 'package:lighthouse_admin/utils/log_util.dart';
 
 class MainModel extends ViewStateModel {
 
+  String currentMenuId;
+
   Disposer userEventDisposer;
 
   MainModel();

@@ -28,5 +28,15 @@
   "home": "首页",
   "menu": "菜单",
   "setting": "设置",
-  "mine": "我的"
+  "mine": "我的",
+  "menuAccount": "账号",
+  "menuChain": "链信息",
+  "menuExchange": "交易所",
+  "menuFriends": "友情链接",
+  "menuMileStone": "里程碑",
+  "menuQuote": "行情",
+  "menuQuoteGlobal": "全球行情",
+  "menuQuoteTreemap": "热力图",
+  "menuSms": "短信",
+  "menuTag": "标签"
 }
