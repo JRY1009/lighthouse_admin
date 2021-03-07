@@ -21,6 +21,30 @@ class Routers {
     GetPage(name: Routers.settingPage, page: () => SettingPage(), transition: Transition.fade),
   ];
 
+  static String accountPage = '/accountPage';
+  static String chainPage = '/chainPage';
+  static String exchangePage = '/exchangePage';
+  static String friendsPage = '/friendsPage';
+  static String milestonePage = '/milestonePage';
+  static String quoteGlobalPage = '/quoteGlobalPage';
+  static String quoteTreemapPage = '/quoteTreemapPage';
+  static String smsPage = '/smsPage';
+  static String tagPage = '/tagPage';
+  static String minePage = '/minePage';
+
+  static final Map<String, Widget> mainRouters = {
+    accountPage: Container(color: Colors.red),
+    chainPage: Container(color: Colors.blue),
+    exchangePage: Container(color: Colors.green),
+    friendsPage: Container(color: Colors.blueAccent),
+    milestonePage: Container(color: Colors.yellow),
+    quoteGlobalPage: Container(color: Colors.cyan),
+    quoteTreemapPage: Container(color: Colors.lime),
+    smsPage: Container(color: Colors.orange),
+    tagPage: Container(color: Colors.brown),
+    minePage: Container(color: Colors.pink),
+  };
+
   static onRoutingCallback(Routing routing) {
     //LogUtil.v('routingCallback ${routing.current}');
   }

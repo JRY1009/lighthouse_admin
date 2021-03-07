@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lighthouse_admin/generated/l10n.dart';
+import 'package:lighthouse_admin/model/menu_data.dart';
+import 'package:lighthouse_admin/model/tab_page_data.dart';
 import 'package:lighthouse_admin/res/gaps.dart';
-import 'package:lighthouse_admin/ui/common/widget/treemenu/menu_data.dart';
+import 'package:lighthouse_admin/router/routers.dart';
 import 'package:lighthouse_admin/ui/common/widget/treemenu/tree_data.dart';
 import 'package:lighthouse_admin/ui/common/widget/treemenu/tree_util.dart';
 import 'package:lighthouse_admin/ui/main/viewmodel/main_model.dart';
@@ -10,11 +12,13 @@ import 'package:lighthouse_admin/utils/object_util.dart';
 import 'package:lighthouse_admin/utils/screen_util.dart';
 
 class MainMenu extends StatefulWidget {
+
+  final Function(TabPageData) onMenuSelect;
+
   MainMenu({
     Key key,
-    this.onClick,
+    this.onMenuSelect,
   }) : super(key: key);
-  final Function onClick;
 
   @override
   _MainMenuState createState() => _MainMenuState();
@@ -44,19 +48,17 @@ class _MainMenuState extends State<MainMenu> {
   void initState() {
     super.initState();
     _listMenuData = [
-      MenuData(id: '101', checked: true, name: S.current.menuAccount, url:''),
-      MenuData(id: '102', checked: false, name: S.current.menuChain, url:''),
-      MenuData(id: '103', checked: false, name: S.current.menuExchange, url:''),
-      MenuData(id: '104', checked: false, name: S.current.menuFriends, url:''),
-      MenuData(id: '105', checked: false, name: S.current.menuMileStone, url:''),
-      MenuData(id: '106', checked: false, name: S.current.menuQuote, url:''),
-      MenuData(id: '201', parentId: '106', checked: false, name: S.current.menuQuoteGlobal, url:''),
-      MenuData(id: '202', parentId: '106', checked: false, name: S.current.menuQuoteTreemap, url:''),
-      MenuData(id: '107', checked: false, name: S.current.menuSms, url:''),
-      MenuData(id: '108', checked: false, name: S.current.menuTag, url:''),
+      MenuData(id: '101', name: S.current.menuAccount, url: Routers.accountPage),
+      MenuData(id: '102', name: S.current.menuChain, url: Routers.chainPage),
+      MenuData(id: '103', name: S.current.menuExchange, url: Routers.exchangePage),
+      MenuData(id: '104', name: S.current.menuFriends, url: Routers.friendsPage),
+      MenuData(id: '105', name: S.current.menuMileStone, url: Routers.milestonePage),
+      MenuData(id: '106', name: S.current.menuQuote),
+      MenuData(id: '201', parentId: '106', name: S.current.menuQuoteGlobal, url: Routers.quoteGlobalPage),
+      MenuData(id: '202', parentId: '106', name: S.current.menuQuoteTreemap, url: Routers.quoteTreemapPage),
+      MenuData(id: '107', name: S.current.menuSms, url: Routers.smsPage),
+      MenuData(id: '108', name: S.current.menuTag, url: Routers.tagPage),
     ];
-
-    _mainModel.currentMenuId ??= TreeUtil.getChecked(_listMenuData)?.id;
   }
 
   @override
@@ -124,8 +126,15 @@ class _MainMenuState extends State<MainMenu> {
           title: Text(_expanded ? name : ''),
           onTap: () {
             if (_mainModel.currentMenuId != treeVO.data.id) {
-              _mainModel.currentMenuId = treeVO.data.id;
-              setState(() {});
+              if (widget.onMenuSelect != null) {
+                widget.onMenuSelect(
+                    TabPageData(
+                        id: treeVO.data.id,
+                        name: treeVO.data.name,
+                        url: treeVO.data.url
+                    )
+                );
+              }
             }
           },
         );
