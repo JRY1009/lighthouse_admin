@@ -11,17 +11,6 @@ class KeepAliveWrapper extends StatefulWidget {
 }
 
 class _KeepAliveWrapperState extends State<KeepAliveWrapper> with AutomaticKeepAliveClientMixin {
-  @override
-  void initState() {
-    LogUtil.v('${widget.child.toStringShort()} ==> initState');
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    LogUtil.v('${widget.child.toStringShort()} ==> dispose');
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {

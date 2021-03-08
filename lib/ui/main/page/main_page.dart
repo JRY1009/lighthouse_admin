@@ -56,7 +56,7 @@ class _MainPageState extends State<MainPage> with BasePageMixin<MainPage> {
             appBar: MainAppBar(context,
               openMenu: () => _scaffoldKey.currentState.openDrawer(),
               openSetting: () => _scaffoldKey.currentState.openEndDrawer(),
-              openMine: () {},
+              openMine: () { _mainModel.update(); },
             ),
             body: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

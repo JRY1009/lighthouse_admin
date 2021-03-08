@@ -434,6 +434,156 @@ class S {
       args: [],
     );
   }
+
+  /// `Id`
+  String get tableId {
+    return Intl.message(
+      'Id',
+      name: 'tableId',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `名称`
+  String get tableName {
+    return Intl.message(
+      '名称',
+      name: 'tableName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `类型`
+  String get tableCategory {
+    return Intl.message(
+      '类型',
+      name: 'tableCategory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Url地址`
+  String get tableUrl {
+    return Intl.message(
+      'Url地址',
+      name: 'tableUrl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `创建时间`
+  String get tableCreateAt {
+    return Intl.message(
+      '创建时间',
+      name: 'tableCreateAt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `修改时间`
+  String get tableUpdateAt {
+    return Intl.message(
+      '修改时间',
+      name: 'tableUpdateAt',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `保存`
+  String get save {
+    return Intl.message(
+      '保存',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `保存成功`
+  String get saved {
+    return Intl.message(
+      '保存成功',
+      name: 'saved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `查询`
+  String get query {
+    return Intl.message(
+      '查询',
+      name: 'query',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `重置`
+  String get reset {
+    return Intl.message(
+      '重置',
+      name: 'reset',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `增加`
+  String get add {
+    return Intl.message(
+      '增加',
+      name: 'add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `修改`
+  String get edit {
+    return Intl.message(
+      '修改',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `修改`
+  String get modify {
+    return Intl.message(
+      '修改',
+      name: 'modify',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `删除`
+  String get delete {
+    return Intl.message(
+      '删除',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `确定删除`
+  String get confirmDelete {
+    return Intl.message(
+      '确定删除',
+      name: 'confirmDelete',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

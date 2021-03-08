@@ -8,11 +8,11 @@ import 'package:lighthouse_admin/ui/common/widget/keep_alive_wrapper.dart';
 import 'package:lighthouse_admin/ui/main/viewmodel/main_model.dart';
 
 class MainCenter extends StatefulWidget {
-  
+
   final TabPageData initPage;
-  
+
   MainCenter({
-    Key key, 
+    Key key,
     this.initPage
   }) : super(key: key);
 
@@ -22,7 +22,6 @@ class MainCenter extends StatefulWidget {
 
 class MainCenterState extends State<MainCenter> with TickerProviderStateMixin {
 
-  List<Widget> pages;
   MainModel _mainModel = Get.find<MainModel>();
 
   @override
@@ -40,14 +39,14 @@ class MainCenterState extends State<MainCenter> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     TabController mainTabController = _mainModel.mainTabController;
     var mainTabPageList = _mainModel.mainTabPageList;
-    
+
     var length = mainTabPageList.length;
     if (length == 0) {
       return Container();
     }
 
     int index = mainTabPageList.indexWhere((page) => page.id == _mainModel.currentMenuId);
-    pages = mainTabPageList.map((TabPageData tabPageData) {
+    List<Widget> pages = mainTabPageList.map((TabPageData tabPageData) {
       var page = Routers.mainRouters[tabPageData.url] ?? Container();
       return KeepAliveWrapper(child: page);
     }).toList();
@@ -56,7 +55,9 @@ class MainCenterState extends State<MainCenter> with TickerProviderStateMixin {
     int initialIndex = tabIndex.clamp(0, length - 1);
     mainTabController?.dispose();
     mainTabController = TabController(vsync: this, length: pages.length, initialIndex: initialIndex);
-    mainTabController.animateTo(index);
+    if (pages.length > 1) {
+      mainTabController.animateTo(index);
+    }
     mainTabController.addListener(() {
       if (mainTabController.indexIsChanging) {
         _mainModel.setCurrentMenuId(mainTabPageList[mainTabController.index].id);
@@ -66,32 +67,30 @@ class MainCenterState extends State<MainCenter> with TickerProviderStateMixin {
     _mainModel.mainTabController = mainTabController;
 
     TabBar tabBar = TabBar(
-      controller: mainTabController,
-      isScrollable: true,
-      indicator: const UnderlineTabIndicator(),
-      tabs: mainTabPageList.map<Tab>((TabPageData tabPageData) {
-        return Tab(
-          child: Row(
-            children: <Widget>[
-              Text(tabPageData.name ?? ''),
-              Gaps.hGap4,
-              InkWell(
-                child: Icon(Icons.close, size: 10),
-                onTap: () => _mainModel.closeTab(tabPageData),
-              ),
-            ],
-          )
-        );
-      }).toList()
+        controller: _mainModel.mainTabController,
+        isScrollable: true,
+        indicator: const UnderlineTabIndicator(),
+        tabs: mainTabPageList.map<Tab>((TabPageData tabPageData) {
+          return Tab(
+              child: Row(
+                children: <Widget>[
+                  Text(tabPageData.name ?? ''),
+                  Gaps.hGap4,
+                  InkWell(
+                    child: Icon(Icons.close, size: 10),
+                    onTap: () => _mainModel.closeTab(tabPageData),
+                  ),
+                ],
+              )
+          );
+        }).toList()
     );
 
-    Widget content = Container(
-      child: Expanded(
+    Widget content = Expanded(
         child: TabBarView(
-          controller: mainTabController,
+          controller: _mainModel.mainTabController,
           children: pages,
-        ),
-      ),
+        )
     );
 
     return Expanded(
@@ -100,10 +99,7 @@ class MainCenterState extends State<MainCenter> with TickerProviderStateMixin {
         children: <Widget>[
           Container(
             width: double.infinity,
-            decoration: BoxDecoration(
-              color: context.theme.primaryColor,
-              boxShadow: [BoxShadow(color: Colors.black54, offset: Offset(2.0, 2.0), blurRadius: 4.0)],
-            ),
+            color: context.theme.primaryColor,
             child: tabBar,
           ),
           content,
@@ -111,4 +107,5 @@ class MainCenterState extends State<MainCenter> with TickerProviderStateMixin {
       ),
     );
   }
+
 }

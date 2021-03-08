@@ -28,7 +28,11 @@ class RTAccount {
   }
 
   bool isLogin() {
-    return _activeAccount != null;
+    if (_activeAccount == null) {
+      _activeAccount = loadAccount();
+    }
+
+    return !ObjectUtil.isEmptyString(_activeAccount?.token);
   }
 
   void logout() {

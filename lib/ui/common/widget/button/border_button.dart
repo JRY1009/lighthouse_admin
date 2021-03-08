@@ -15,7 +15,7 @@ class BorderButton extends StatefulWidget {
 
   BorderButton({
     Key key,
-    @required this.borderColor,
+    this.borderColor = Colours.app_main,
     this.color,
     this.text,
     this.textStyle = TextStyles.textMain16,

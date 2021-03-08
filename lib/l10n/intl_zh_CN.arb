@@ -38,5 +38,20 @@
   "menuQuoteGlobal": "全球行情",
   "menuQuoteTreemap": "热力图",
   "menuSms": "短信",
-  "menuTag": "标签"
+  "menuTag": "标签",
+  "tableId": "Id",
+  "tableName": "名称",
+  "tableCategory": "类型",
+  "tableUrl": "Url地址",
+  "tableCreateAt": "创建时间",
+  "tableUpdateAt": "修改时间",
+  "save": "保存",
+  "saved": "保存成功",
+  "query": "查询",
+  "reset": "重置",
+  "add": "增加",
+  "edit": "修改",
+  "modify": "修改",
+  "delete": "删除",
+  "confirmDelete": "确定删除"
 }

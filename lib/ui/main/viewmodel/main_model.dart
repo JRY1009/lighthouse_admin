@@ -27,6 +27,7 @@ class MainModel extends ViewStateModel {
         Get.offAllNamed(Routers.loginPage);
       }
     });
+
   }
 
   void openTab(TabPageData tabPageData) {
@@ -48,14 +49,14 @@ class MainModel extends ViewStateModel {
       return;
     }
 
-    TabPageData tabPage = mainTabPageList[index];
     mainTabPageList.removeAt(index);
 
     int length = mainTabPageList.length;
     if (length == 0) {
       currentMenuId = null;
 
-    } else if (currentMenuId == tabPage.id) {
+    } else if (currentMenuId == tabPageData.id) {
+      mainTabController?.animateTo(0);
       currentMenuId = mainTabPageList.first.id;
     }
 

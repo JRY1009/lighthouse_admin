@@ -24,7 +24,11 @@ class Apis {
   static bool get isTestEnvironment => (BASE_URL_YAPI == 'http://81.70.145.64/backstage');
 
   static const String URL_LOGIN = '/login';
-  static const String URL_REGISTER = '/reg';
+
+  static const String URL_FRIEND_LIST = '/friend_link/list';
+  static const String URL_FRIEND_CHANGE_STATUS = '/friend_link/change_status';
+  static const String URL_FRIEND_ADD = '/friend_link/add';
+  static const String URL_FRIEND_EDIT = '/friend_link/edit';
 
   static const String URL_OFFICIAL_WEBSITE = 'https://www.blockdt.com';
 }
