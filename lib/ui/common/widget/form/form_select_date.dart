@@ -5,8 +5,8 @@ import 'package:lighthouse_admin/utils/date_util.dart';
 import 'from_field_box.dart';
 
 
-class CrySelectDate extends FormFieldBox {
-  CrySelectDate({
+class FormSelectDate extends FormFieldBox {
+  FormSelectDate({
     Key key,
     String value,
     String label,
@@ -31,12 +31,15 @@ class CrySelectDate extends FormFieldBox {
               onTap: () async {
                 final DateTime picked = await showDatePicker(
                   context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime(2015, 8),
+                  initialDate: DateUtil.getDateTime(value),
+                  firstDate: DateTime(2000, 1),
                   lastDate: DateTime(2101),
                 );
-                value = DateUtil.formatDate(picked, format: DataFormats.y_mo_d);
-                state.didChange();
+
+                if (picked != null) {
+                  value = DateUtil.formatDate(picked, format: DataFormats.y_mo_d);
+                  state.didChange();
+                }
               },
               onSaved: (v) {
                 if (onSaved != null) {

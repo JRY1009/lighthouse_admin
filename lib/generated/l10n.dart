@@ -475,6 +475,36 @@ class S {
     );
   }
 
+  /// `标签`
+  String get tableTag {
+    return Intl.message(
+      '标签',
+      name: 'tableTag',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `日期`
+  String get tableDate {
+    return Intl.message(
+      '日期',
+      name: 'tableDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `内容`
+  String get tableContent {
+    return Intl.message(
+      '内容',
+      name: 'tableContent',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Url地址`
   String get tableUrl {
     return Intl.message(
@@ -550,6 +580,16 @@ class S {
     return Intl.message(
       '已关闭',
       name: 'tableNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `确定`
+  String get confirm {
+    return Intl.message(
+      '确定',
+      name: 'confirm',
       desc: '',
       args: [],
     );
