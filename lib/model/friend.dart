@@ -11,6 +11,19 @@ class Friend {
   String updated_at;
   int yn;
 
+  String get category_text => _getCategory();
+
+  String _getCategory() {
+    String text = '';
+    if (category == 1) {
+      text = 'bitcoin';
+    } else if (category == 2) {
+      text = 'ethereum';
+    }
+    return text;
+  }
+
+
   Friend({
     this.id,
     this.category,

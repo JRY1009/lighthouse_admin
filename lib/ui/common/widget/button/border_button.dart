@@ -37,10 +37,10 @@ class _BorderButtonState extends State<BorderButton> {
       height: widget.height,
       decoration: BoxDecoration(
         border: Border.all(color: widget.borderColor, width: 1.0),
-        borderRadius: BorderRadius.circular(50.0),   //圆角
+        borderRadius: BorderRadius.circular(5.0),   //圆角
       ),
       child: FlatButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50.0))),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
         color: widget.color,
         disabledColor: Colours.button_disabled,
         child: Text(

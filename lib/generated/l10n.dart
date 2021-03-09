@@ -435,6 +435,16 @@ class S {
     );
   }
 
+  /// `必填`
+  String get tableRequried {
+    return Intl.message(
+      '必填',
+      name: 'tableRequried',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Id`
   String get tableId {
     return Intl.message(
@@ -495,6 +505,56 @@ class S {
     );
   }
 
+  /// `操作`
+  String get tableOperate {
+    return Intl.message(
+      '操作',
+      name: 'tableOperate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `状态`
+  String get tableYn {
+    return Intl.message(
+      '状态',
+      name: 'tableYn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已开启`
+  String get tableYes {
+    return Intl.message(
+      '已开启',
+      name: 'tableYes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `已关闭`
+  String get tableNo {
+    return Intl.message(
+      '已关闭',
+      name: 'tableNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `取消`
+  String get cancel {
+    return Intl.message(
+      '取消',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `保存`
   String get save {
     return Intl.message(
@@ -510,6 +570,16 @@ class S {
     return Intl.message(
       '保存成功',
       name: 'saved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `刷新`
+  String get refresh {
+    return Intl.message(
+      '刷新',
+      name: 'refresh',
       desc: '',
       args: [],
     );
@@ -560,6 +630,16 @@ class S {
     return Intl.message(
       '修改',
       name: 'modify',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `修改成功`
+  String get modified {
+    return Intl.message(
+      '修改成功',
+      name: 'modified',
       desc: '',
       args: [],
     );

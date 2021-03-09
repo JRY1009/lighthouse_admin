@@ -2,11 +2,13 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/list_notifier.dart';
 import 'package:lighthouse_admin/generated/l10n.dart';
 import 'package:lighthouse_admin/model/friend.dart';
 import 'package:lighthouse_admin/mvvm/base_page.dart';
 import 'package:lighthouse_admin/res/gaps.dart';
 import 'package:lighthouse_admin/ui/common/widget/button/border_button.dart';
+import 'package:lighthouse_admin/ui/friend/page/friend_edit_page.dart';
 import 'package:lighthouse_admin/ui/friend/viewmodel/friend_model.dart';
 
 class FriendPage extends StatefulWidget {
@@ -22,7 +24,7 @@ class FriendPageState extends State<FriendPage> with BasePageMixin<FriendPage> {
   
   int _rowsPerPage = 10;
 
-
+  Disposer _friendDisposer;
   FriendModel _friendModel = Get.put(FriendModel());
 
   @override
@@ -36,10 +38,17 @@ class FriendPageState extends State<FriendPage> with BasePageMixin<FriendPage> {
     });
   }
 
+  @override
+  void dispose() {
+    if (_friendDisposer != null) {
+      _friendDisposer();
+    }
+    super.dispose();
+  }
 
   void initViewModel() {
     _friendModel.initDS(context, this);
-    _friendModel.addListener(() {
+    _friendDisposer = _friendModel.addListener(() {
       if (_friendModel.isBusy) {
         showProgress(content: S.current.loading);
 
@@ -49,18 +58,36 @@ class FriendPageState extends State<FriendPage> with BasePageMixin<FriendPage> {
 
       } else if (_friendModel.isSuccess) {
         closeProgress();
+        BotToast.showText(text: S.current.saved);
+
+      } else if (_friendModel.isIdle) {
+        closeProgress();
       }
     });
   }
 
-  _reset() {
-  }
-
-  _query() {
-    _friendModel.list();
+  _query({bool silent = false}) {
+    _friendModel.list(silent: silent);
   }
 
   _edit({Friend friend}) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => Dialog(
+        child: FriendEditPage(
+          friend: friend,
+        ),
+      ),
+    ).then((value) {
+      // 添加项目后 刷新一下
+      if (value == true && friend == null) {
+        _query(silent: true);
+      }
+    });
+  }
+
+  _change_status(id, status) {
+    _friendModel.change_status(id, status);
   }
 
   @override
@@ -73,9 +100,9 @@ class FriendPageState extends State<FriendPage> with BasePageMixin<FriendPage> {
     ButtonBar buttonBar = ButtonBar(
       alignment: MainAxisAlignment.start,
       children: <Widget>[
-        BorderButton(width: 80, height: 40, text: S.of(context).query, onPressed: () => _query()),
-        BorderButton(width: 80, height: 40, text: S.of(context).reset, onPressed: () => _reset()),
-        BorderButton(width: 80, height: 40, text: S.of(context).edit, onPressed: () => _edit())
+        Gaps.hGap10,
+        BorderButton(width: 80, height: 40, text: S.of(context).refresh, onPressed: () => _query()),
+        BorderButton(width: 80, height: 40, text: S.of(context).add, onPressed: () => _edit()),
       ],
     );
 
@@ -94,6 +121,9 @@ class FriendPageState extends State<FriendPage> with BasePageMixin<FriendPage> {
             availableRowsPerPage: <int>[10, 20],
             onPageChanged: (index){},
             columns: <DataColumn>[
+              DataColumn(
+                label: Text(S.of(context).tableYn),
+              ),
               DataColumn(
                 label: Text(S.of(context).tableId),
               ),
@@ -154,6 +184,16 @@ class FriendDS extends DataTableSource {
     return DataRow.byIndex(
       index: index,
       cells: <DataCell>[
+        DataCell(Row(
+          children: [
+            Text(friend.yn != 0 ? S.of(context).tableYes : S.of(context).tableNo),
+            Switch(value: friend.yn != 0, onChanged: (value) => state._change_status(friend.id, value ? 1: 0)),
+            IconButton(
+                icon: Icon(Icons.edit),
+                onPressed: () => state._edit(friend: friend)
+            )
+          ]
+        )),
         DataCell(Text(friend.id.toString() ?? '--')),
         DataCell(Text(friend.name ?? '--')),
         DataCell(Text(friend.category.toString() ?? '--')),
