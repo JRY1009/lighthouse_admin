@@ -30,5 +30,15 @@ class Apis {
   static const String URL_FRIEND_ADD = '/friend_link/add';
   static const String URL_FRIEND_EDIT = '/friend_link/edit';
 
+  static const String URL_TAG_LIST = '/tag/list';
+  static const String URL_TAG_CHANGE_STATUS = '/tag/change_status';
+  static const String URL_TAG_ADD = '/tag/add';
+  static const String URL_TAG_EDIT = '/tag/edit';
+
+  static const String URL_MILESTONE_LIST = '/milestone/list';
+  static const String URL_MILESTONE_CHANGE_STATUS = '/milestone/change_status';
+  static const String URL_MILESTONE_ADD = '/milestone/add';
+  static const String URL_MILESTONE_EDIT = '/milestone/edit';
+
   static const String URL_OFFICIAL_WEBSITE = 'https://www.blockdt.com';
 }

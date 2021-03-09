@@ -44,6 +44,7 @@
   "tableName": "名称",
   "tableCategory": "类型",
   "tableUrl": "Url地址",
+  "tableRemark": "备注",
   "tableCreateAt": "创建时间",
   "tableUpdateAt": "修改时间",
   "tableOperate": "操作",

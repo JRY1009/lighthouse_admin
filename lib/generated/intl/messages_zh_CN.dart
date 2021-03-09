@@ -73,6 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tableName" : MessageLookupByLibrary.simpleMessage("名称"),
     "tableNo" : MessageLookupByLibrary.simpleMessage("已关闭"),
     "tableOperate" : MessageLookupByLibrary.simpleMessage("操作"),
+    "tableRemark" : MessageLookupByLibrary.simpleMessage("备注"),
     "tableRequried" : MessageLookupByLibrary.simpleMessage("必填"),
     "tableUpdateAt" : MessageLookupByLibrary.simpleMessage("修改时间"),
     "tableUrl" : MessageLookupByLibrary.simpleMessage("Url地址"),

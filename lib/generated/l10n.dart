@@ -485,6 +485,16 @@ class S {
     );
   }
 
+  /// `备注`
+  String get tableRemark {
+    return Intl.message(
+      '备注',
+      name: 'tableRemark',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `创建时间`
   String get tableCreateAt {
     return Intl.message(

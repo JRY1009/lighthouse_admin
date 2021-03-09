@@ -6,6 +6,7 @@ import 'package:lighthouse_admin/ui/friend/page/friend_page.dart';
 import 'package:lighthouse_admin/ui/main/page/main_page.dart';
 import 'package:lighthouse_admin/ui/mine/page/login_page.dart';
 import 'package:lighthouse_admin/ui/mine/page/setting_page.dart';
+import 'package:lighthouse_admin/ui/tag/page/tag_page.dart';
 import 'package:lighthouse_admin/utils/log_util.dart';
 
 class Routers {
@@ -42,7 +43,7 @@ class Routers {
     quoteGlobalPage: Container(color: Colors.cyan),
     quoteTreemapPage: Container(color: Colors.lime),
     smsPage: Container(color: Colors.orange),
-    tagPage: Container(color: Colors.brown),
+    tagPage: TagPage(),
     minePage: Container(color: Colors.pink),
   };
 
