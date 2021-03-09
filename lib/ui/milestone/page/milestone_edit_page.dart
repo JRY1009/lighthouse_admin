@@ -9,13 +9,10 @@ import 'package:lighthouse_admin/mvvm/base_page.dart';
 import 'package:lighthouse_admin/res/gaps.dart';
 import 'package:lighthouse_admin/res/styles.dart';
 import 'package:lighthouse_admin/ui/common/widget/button/border_button.dart';
-import 'package:lighthouse_admin/ui/common/widget/form/form_input.dart';
-import 'package:lighthouse_admin/ui/common/widget/form/form_select.dart';
 import 'package:lighthouse_admin/ui/common/widget/form/form_select_date.dart';
 import 'package:lighthouse_admin/ui/common/widget/form/multiselect_formfield.dart';
 import 'package:lighthouse_admin/ui/milestone/viewmodel/milestone_model.dart';
 import 'package:lighthouse_admin/utils/object_util.dart';
-import 'package:lighthouse_admin/utils/screen_util.dart';
 
 class MilestoneEditPage extends StatefulWidget {
   final Milestone milestone;
@@ -41,7 +38,7 @@ class MilestoneEditPageState extends State<MilestoneEditPage> with BasePageMixin
     super.initState();
 
     formData = widget.milestone ?? Milestone();
-    _tags = formData.tag.split(',') ?? [];
+    _tags = formData.tag?.split(',') ?? [];
 
     initViewModel();
   }
@@ -132,19 +129,17 @@ class MilestoneEditPageState extends State<MilestoneEditPage> with BasePageMixin
               initialValue: _tags,
               onSaved: (value) {
                 if (value == null) return;
-                setState(() {
-                  _tags = value;
+                _tags = value;
 
-                  String result;
-                  _tags.forEach((text) {
-                    if (ObjectUtil.isEmptyString(result))
-                      result = text;
-                    else
-                      result = '$result,$text';
-                  });
-
-                  formData.tag = result ?? '';
+                String result;
+                _tags.forEach((text) {
+                  if (ObjectUtil.isEmptyString(result))
+                    result = text;
+                  else
+                    result = '$result,$text';
                 });
+
+                formData.tag = result ?? '';
               },
             ),
           ),

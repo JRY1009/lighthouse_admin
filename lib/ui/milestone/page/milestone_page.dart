@@ -22,7 +22,7 @@ class MilestonePageState extends State<MilestonePage> with BasePageMixin<Milesto
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   
-  int _rowsPerPage = 10;
+  int _rowsPerPage = 20;
 
   Disposer _friendDisposer;
   MilestoneModel _milestoneModel = Get.put(MilestoneModel());
@@ -118,7 +118,7 @@ class MilestonePageState extends State<MilestonePage> with BasePageMixin<Milesto
                 _rowsPerPage = value;
               });
             },
-            availableRowsPerPage: <int>[10, 20],
+            availableRowsPerPage: <int>[10, 20, 50],
             onPageChanged: (index){},
             columns: <DataColumn>[
               DataColumn(

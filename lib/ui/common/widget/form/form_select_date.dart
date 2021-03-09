@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:lighthouse_admin/utils/date_util.dart';
+import 'package:lighthouse_admin/utils/object_util.dart';
 
 import 'from_field_box.dart';
 
@@ -31,7 +32,7 @@ class FormSelectDate extends FormFieldBox {
               onTap: () async {
                 final DateTime picked = await showDatePicker(
                   context: context,
-                  initialDate: DateUtil.getDateTime(value),
+                  initialDate: ObjectUtil.isEmpty(value) ? DateTime.now() : DateUtil.getDateTime(value),
                   firstDate: DateTime(2000, 1),
                   lastDate: DateTime(2101),
                 );
