@@ -44,7 +44,7 @@ class TagModel extends ViewStateModel {
     Map<String, dynamic> params = {
       'id': tag.id,
       'name': tag.name,
-      'category': tag.remark,
+      'remark': tag.remark,
     };
 
     setBusy();

@@ -24,6 +24,17 @@ class Apis {
   static bool get isTestEnvironment => (BASE_URL_YAPI == 'http://81.70.145.64/backstage');
 
   static const String URL_LOGIN = '/login';
+  static const String URL_ACCOUNT_PAGE = '/account/page';
+
+  static const String URL_CHAIN_LIST = '/chain_info/list';
+  static const String URL_CHAIN_CHANGE_STATUS = '/chain_info/change_status';
+  static const String URL_CHAIN_ADD = '/chain_info/add';
+  static const String URL_CHAIN_EDIT = '/chain_info/edit';
+
+  static const String URL_EXCHANGE_LIST = '/exchange/list';
+  static const String URL_EXCHANGE_CHANGE_STATUS = '/exchange/change_status';
+  static const String URL_EXCHANGE_ADD = '/exchange/add';
+  static const String URL_EXCHANGE_EDIT = '/exchange/edit';
 
   static const String URL_FRIEND_LIST = '/friend_link/list';
   static const String URL_FRIEND_CHANGE_STATUS = '/friend_link/change_status';
@@ -39,6 +50,13 @@ class Apis {
   static const String URL_MILESTONE_CHANGE_STATUS = '/milestone/change_status';
   static const String URL_MILESTONE_ADD = '/milestone/add';
   static const String URL_MILESTONE_EDIT = '/milestone/edit';
+
+  static const String URL_QUOTE_GLOBAL = '/quote/global_quote';
+  static const String URL_QUOTE = '/quote/quote';
+  static const String URL_QUOTE_TREEMAP = '/quote/thermodynamic_diagram';
+
+  static const String URL_SMS_PAGE = '/sms_record/page';
+  static const String URL_SMS_TYPE = '/sms_record/sms_type';
 
   static const String URL_OFFICIAL_WEBSITE = 'https://www.blockdt.com';
 }

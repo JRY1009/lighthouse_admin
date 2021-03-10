@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tableContent" : MessageLookupByLibrary.simpleMessage("内容"),
     "tableCreateAt" : MessageLookupByLibrary.simpleMessage("创建时间"),
     "tableDate" : MessageLookupByLibrary.simpleMessage("日期"),
+    "tableIco" : MessageLookupByLibrary.simpleMessage("图标"),
     "tableId" : MessageLookupByLibrary.simpleMessage("Id"),
     "tableName" : MessageLookupByLibrary.simpleMessage("名称"),
     "tableNo" : MessageLookupByLibrary.simpleMessage("已关闭"),

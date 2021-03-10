@@ -515,6 +515,16 @@ class S {
     );
   }
 
+  /// `图标`
+  String get tableIco {
+    return Intl.message(
+      '图标',
+      name: 'tableIco',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `备注`
   String get tableRemark {
     return Intl.message(

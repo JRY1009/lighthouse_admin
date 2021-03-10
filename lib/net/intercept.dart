@@ -16,7 +16,7 @@ class AuthInterceptor extends Interceptor {
     String timestamp = (DateUtil.getNowDateMs() * 1000).toString();
 
     if (DeviceUtil.isWeb) {
-      String version = '1.0';
+      String version = '1.0.0';
       String language = WidgetsBinding.instance.window.locale.toString();
       String dev = 'Web';
       String channel = 'official';

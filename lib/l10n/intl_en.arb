@@ -47,6 +47,7 @@
   "tableDate": "日期",
   "tableContent": "内容",
   "tableUrl": "Url地址",
+  "tableIco": "图标",
   "tableRemark": "备注",
   "tableCreateAt": "创建时间",
   "tableUpdateAt": "修改时间",
