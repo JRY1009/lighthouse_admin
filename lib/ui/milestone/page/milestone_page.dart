@@ -111,7 +111,7 @@ class MilestonePageState extends State<MilestonePage> with BasePageMixin<Milesto
         padding: const EdgeInsets.all(10.0),
         children: <Widget>[
           PaginatedDataTable(
-            header: Text(S.of(context).menuFriends),
+            header: Text(S.of(context).menuMileStone),
             rowsPerPage: _rowsPerPage,
             onRowsPerPageChanged: (int value) {
               setState(() {

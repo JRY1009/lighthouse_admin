@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lighthouse_admin/global/rt_account.dart';
-import 'package:lighthouse_admin/model/chain_info.dart';
 import 'package:lighthouse_admin/ui/chaininfo/page/chain_info_page.dart';
 import 'package:lighthouse_admin/ui/common/page/not_found_page.dart';
 import 'package:lighthouse_admin/ui/exchange/page/exchange_page.dart';
@@ -11,6 +10,7 @@ import 'package:lighthouse_admin/ui/milestone/page/milestone_page.dart';
 import 'package:lighthouse_admin/ui/mine/page/login_page.dart';
 import 'package:lighthouse_admin/ui/mine/page/setting_page.dart';
 import 'package:lighthouse_admin/ui/tag/page/tag_page.dart';
+import 'package:lighthouse_admin/ui/user/page/user_page.dart';
 
 class Routers {
 
@@ -38,7 +38,7 @@ class Routers {
   static String minePage = '/minePage';
 
   static final Map<String, Widget> mainRouters = {
-    accountPage: Container(color: Colors.red),
+    accountPage: UserPage(),
     chainPage: ChainInfoPage(),
     exchangePage: ExchangePage(),
     friendsPage: FriendPage(),

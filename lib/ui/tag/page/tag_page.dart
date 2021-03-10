@@ -111,7 +111,7 @@ class TagPageState extends State<TagPage> with BasePageMixin<TagPage> {
         padding: const EdgeInsets.all(10.0),
         children: <Widget>[
           PaginatedDataTable(
-            header: Text(S.of(context).menuFriends),
+            header: Text(S.of(context).menuTag),
             rowsPerPage: _rowsPerPage,
             onRowsPerPageChanged: (int value) {
               setState(() {

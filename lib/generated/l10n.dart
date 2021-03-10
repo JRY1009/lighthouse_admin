@@ -465,6 +465,56 @@ class S {
     );
   }
 
+  /// `昵称`
+  String get tableNickName {
+    return Intl.message(
+      '昵称',
+      name: 'tableNickName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `邮箱`
+  String get tableEmail {
+    return Intl.message(
+      '邮箱',
+      name: 'tableEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `手机号`
+  String get tablePhone {
+    return Intl.message(
+      '手机号',
+      name: 'tablePhone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `头像`
+  String get tableHeadIco {
+    return Intl.message(
+      '头像',
+      name: 'tableHeadIco',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `密码`
+  String get tablePwd {
+    return Intl.message(
+      '密码',
+      name: 'tablePwd',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `类型`
   String get tableCategory {
     return Intl.message(
