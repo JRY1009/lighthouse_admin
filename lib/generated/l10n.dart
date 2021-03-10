@@ -495,10 +495,10 @@ class S {
     );
   }
 
-  /// `内容`
+  /// `概况`
   String get tableContent {
     return Intl.message(
-      '内容',
+      '概况',
       name: 'tableContent',
       desc: '',
       args: [],
@@ -590,6 +590,106 @@ class S {
     return Intl.message(
       '已关闭',
       name: 'tableNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `符号`
+  String get tableSymbol {
+    return Intl.message(
+      '符号',
+      name: 'tableSymbol',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `基础链`
+  String get tableChain {
+    return Intl.message(
+      '基础链',
+      name: 'tableChain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `市值`
+  String get tableTotalMarketValue {
+    return Intl.message(
+      '市值',
+      name: 'tableTotalMarketValue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `全球数字资产占比`
+  String get tableRatio {
+    return Intl.message(
+      '全球数字资产占比',
+      name: 'tableRatio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `发行总量`
+  String get tableTotalSupply {
+    return Intl.message(
+      '发行总量',
+      name: 'tableTotalSupply',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `核心算法`
+  String get tableCoreAlgorithm {
+    return Intl.message(
+      '核心算法',
+      name: 'tableCoreAlgorithm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `核心算法说明`
+  String get tableCoreAlgorithmRemark {
+    return Intl.message(
+      '核心算法说明',
+      name: 'tableCoreAlgorithmRemark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `共识机制`
+  String get tableConsensusMechanism {
+    return Intl.message(
+      '共识机制',
+      name: 'tableConsensusMechanism',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `共识机制说明`
+  String get tableConsensusMechanismRemark {
+    return Intl.message(
+      '共识机制说明',
+      name: 'tableConsensusMechanismRemark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `项目启动日期`
+  String get tableStartDate {
+    return Intl.message(
+      '项目启动日期',
+      name: 'tableStartDate',
       desc: '',
       args: [],
     );

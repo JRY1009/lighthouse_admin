@@ -59,9 +59,9 @@ class MainCenterState extends State<MainCenter> with TickerProviderStateMixin {
       mainTabController.animateTo(index);
     }
     mainTabController.addListener(() {
-      if (mainTabController.indexIsChanging) {
+      //if (mainTabController.indexIsChanging) {
         _mainModel.setCurrentMenuId(mainTabPageList[mainTabController.index].id);
-      }
+      //}
     });
 
     _mainModel.mainTabController = mainTabController;

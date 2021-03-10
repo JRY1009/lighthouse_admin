@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'from_field_box.dart';
 
@@ -12,6 +13,8 @@ class FormInput extends FormFieldBox {
     ValueChanged onChange,
     FormFieldSetter onSaved,
     FormFieldValidator<String> validator,
+    TextInputType keyboardType,
+    List<TextInputFormatter> inputFormatters,
     bool enable,
   }) : super(
           key: key,
@@ -25,6 +28,8 @@ class FormInput extends FormFieldBox {
                 border: OutlineInputBorder(),
                 enabled: enable ?? true,
               ),
+              keyboardType: keyboardType ?? TextInputType.text,
+              inputFormatters: inputFormatters ?? [],
               controller: TextEditingController(text: value),
               onChanged: (v) {
                 if (onChange != null) {

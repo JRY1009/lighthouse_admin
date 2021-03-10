@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lighthouse_admin/global/rt_account.dart';
+import 'package:lighthouse_admin/model/chain_info.dart';
+import 'package:lighthouse_admin/ui/chaininfo/page/chain_info_page.dart';
 import 'package:lighthouse_admin/ui/common/page/not_found_page.dart';
 import 'package:lighthouse_admin/ui/exchange/page/exchange_page.dart';
 import 'package:lighthouse_admin/ui/friend/page/friend_page.dart';
@@ -37,7 +39,7 @@ class Routers {
 
   static final Map<String, Widget> mainRouters = {
     accountPage: Container(color: Colors.red),
-    chainPage: Scaffold(backgroundColor: Colors.blue),
+    chainPage: ChainInfoPage(),
     exchangePage: ExchangePage(),
     friendsPage: FriendPage(),
     milestonePage: MilestonePage(),
