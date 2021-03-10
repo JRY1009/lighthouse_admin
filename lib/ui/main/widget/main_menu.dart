@@ -41,6 +41,8 @@ class _MainMenuState extends State<MainMenu> {
     '201': Icons.map,
     '202': Icons.local_fire_department,
     '107': Icons.sms,
+    '211': Icons.sms_outlined,
+    '212': Icons.sms_outlined,
     '108': Icons.tag,
   };
 
@@ -56,7 +58,9 @@ class _MainMenuState extends State<MainMenu> {
       MenuData(id: '106', name: S.current.menuQuote),
       MenuData(id: '201', parentId: '106', name: S.current.menuQuoteGlobal, url: Routers.quoteGlobalPage),
       MenuData(id: '202', parentId: '106', name: S.current.menuQuoteTreemap, url: Routers.quoteTreemapPage),
-      MenuData(id: '107', name: S.current.menuSms, url: Routers.smsPage),
+      MenuData(id: '107', name: S.current.menuSms),
+      MenuData(id: '211', parentId: '107', name: S.current.menuSmsQuery, url: Routers.smsQueryPage),
+      MenuData(id: '212', parentId: '107', name: S.current.menuSmsType, url: Routers.smsTypePage),
       MenuData(id: '108', name: S.current.menuTag, url: Routers.tagPage),
     ];
   }

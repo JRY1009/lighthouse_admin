@@ -425,6 +425,26 @@ class S {
     );
   }
 
+  /// `短信查询`
+  String get menuSmsQuery {
+    return Intl.message(
+      '短信查询',
+      name: 'menuSmsQuery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `短信类型`
+  String get menuSmsType {
+    return Intl.message(
+      '短信类型',
+      name: 'menuSmsType',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `标签`
   String get menuTag {
     return Intl.message(
@@ -545,6 +565,26 @@ class S {
     );
   }
 
+  /// `模板`
+  String get tableTemplate {
+    return Intl.message(
+      '模板',
+      name: 'tableTemplate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `返回`
+  String get tableResponse {
+    return Intl.message(
+      '返回',
+      name: 'tableResponse',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `概况`
   String get tableContent {
     return Intl.message(
@@ -640,6 +680,26 @@ class S {
     return Intl.message(
       '已关闭',
       name: 'tableNo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `成功`
+  String get tableSuccess {
+    return Intl.message(
+      '成功',
+      name: 'tableSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `失败`
+  String get tableFail {
+    return Intl.message(
+      '失败',
+      name: 'tableFail',
       desc: '',
       args: [],
     );

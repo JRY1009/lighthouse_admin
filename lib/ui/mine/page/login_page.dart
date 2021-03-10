@@ -187,13 +187,20 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
                 bottomButton: Container(
                     alignment: Alignment.bottomCenter,
                     margin: EdgeInsets.only(bottom: 20.0),
-                    child: Text.rich(TextSpan(
-                        children: [
-                          TextSpan(text: S.of(context).noAccount, style: TextStyles.textGray400_w400_14),
-                          TextSpan(text: S.of(context).clickRegister, style: TextStyles.textMain14,
-                              recognizer: new TapGestureRecognizer()..onTap = _jump2Register),
-                        ]
-                    ))
+//                    child: Text.rich(TextSpan(
+//                        children: [
+//                          TextSpan(text: S.of(context).noAccount, style: TextStyles.textGray400_w400_14),
+//                          TextSpan(text: S.of(context).clickRegister, style: TextStyles.textMain14,
+//                              recognizer: new TapGestureRecognizer()..onTap = _jump2Register),
+//                        ]
+//                    ))
+                    child: Container(
+                        alignment: Alignment.bottomCenter,
+                        child: SelectableText('没账号？用这个 Account：legend9999@126.com / Password：lizhiwei1234',
+                            maxLines: 1,
+                            strutStyle: StrutStyle(forceStrutHeight: true, height:1, leading: 0.5),
+                            style: TextStyles.textGray800_w400_12)
+                    )
                 ),
               )
           )
