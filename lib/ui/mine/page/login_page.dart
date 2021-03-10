@@ -64,6 +64,12 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
         Get.offNamed(Routers.mainPage);
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        _loginModel.tokenDelay();
+      }
+    });
   }
 
   void _checkInput() {

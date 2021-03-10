@@ -6,7 +6,7 @@ class Apis {
   static const String ERRNO_DIO_ERROR = "DIOERROR";
   static const String ERRNO_UNKNOWN = "UNKNOWN";
   static const String ERRNO_UNKNOWN_MESSAGE = "UNKNOWN MESSAGE";
-  static const String ERRNO_FORBIDDEN = "FORBIDDEN";
+  static const String ERRNO_FORBIDDEN = "20000";
 
   static const String KEY_VER = "lh-Ver";
   static const String KEY_DEV = "lh-Dev";
@@ -24,6 +24,7 @@ class Apis {
   static bool get isTestEnvironment => (BASE_URL_YAPI == 'http://81.70.145.64/backstage');
 
   static const String URL_LOGIN = '/login';
+  static const String URL_TOKEN_DELAY = '/token_delay';
   static const String URL_ACCOUNT_PAGE = '/account/page';
 
   static const String URL_CHAIN_LIST = '/chain_info/list';

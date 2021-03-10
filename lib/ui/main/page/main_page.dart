@@ -52,11 +52,22 @@ class _MainPageState extends State<MainPage> with BasePageMixin<MainPage> {
           return Scaffold(
             key: _scaffoldKey,
             drawer: mainMenu,
-            endDrawer: Container(width: 200, height: double.infinity, color: Colors.yellow),
+            endDrawer: Container(
+                width: 200,
+                height: double.infinity,
+                color: Colors.white,
+                child: Center(child: Text('啥也没有憋瞎点'))
+            ),
             appBar: MainAppBar(context,
               openMenu: () => _scaffoldKey.currentState.openDrawer(),
               openSetting: () => _scaffoldKey.currentState.openEndDrawer(),
-              openMine: () { _mainModel.update(); },
+              openMine: () {
+                _mainModel.openTab(TabPageData(
+                    id: '1',
+                    name: S.of(context).mine,
+                    url: Routers.minePage
+                ));
+              },
             ),
             body: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

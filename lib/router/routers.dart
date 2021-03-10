@@ -8,6 +8,7 @@ import 'package:lighthouse_admin/ui/friend/page/friend_page.dart';
 import 'package:lighthouse_admin/ui/main/page/main_page.dart';
 import 'package:lighthouse_admin/ui/milestone/page/milestone_page.dart';
 import 'package:lighthouse_admin/ui/mine/page/login_page.dart';
+import 'package:lighthouse_admin/ui/mine/page/mine_page.dart';
 import 'package:lighthouse_admin/ui/mine/page/setting_page.dart';
 import 'package:lighthouse_admin/ui/sms/page/sms_query_page.dart';
 import 'package:lighthouse_admin/ui/sms/page/sms_type_page.dart';
@@ -46,12 +47,12 @@ class Routers {
     exchangePage: ExchangePage(),
     friendsPage: FriendPage(),
     milestonePage: MilestonePage(),
-    quoteGlobalPage: Container(color: Colors.cyan),
-    quoteTreemapPage: Container(color: Colors.lime),
+    quoteGlobalPage: Container(color: Colors.cyan, child: Center(child: Text('啥也没有憋瞎点'))),
+    quoteTreemapPage: Container(color: Colors.lime, child: Center(child: Text('啥也没有憋瞎点'))),
     smsQueryPage: SmsQueryPage(),
     smsTypePage: SmsTypePage(),
     tagPage: TagPage(),
-    minePage: Container(color: Colors.pink),
+    minePage: MinePage(),
   };
 
   static onRoutingCallback(Routing routing) {

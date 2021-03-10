@@ -5,6 +5,7 @@ import 'package:lighthouse_admin/model/account.dart';
 import 'package:lighthouse_admin/mvvm/view_state_model.dart';
 import 'package:lighthouse_admin/net/apis.dart';
 import 'package:lighthouse_admin/net/dio_util.dart';
+import 'package:lighthouse_admin/utils/object_util.dart';
 
 class LoginModel extends ViewStateModel {
 
@@ -42,4 +43,33 @@ class LoginModel extends ViewStateModel {
 
   }
 
+  Future tokenDelay() {
+
+    Account account = RTAccount.instance().loadAccount();
+    if (ObjectUtil.isEmpty(account?.token)) {
+      return Future.value(0);
+    }
+
+    setBusy();
+
+    return DioUtil.getInstance().requestNetwork(Apis.URL_TOKEN_DELAY, "post", params: {},
+        cancelToken: cancelToken,
+        onSuccess: (data) {
+
+          Account result = Account.fromJson(data);
+          result.token = account?.token;
+
+          RTAccount.instance().setActiveAccount(result);
+          RTAccount.instance().saveAccount();
+
+          setSuccess();
+
+          Get.find<UserEventController>().fireUserEvent(loginResult.admin_info, UserEventState.userme);
+        },
+        onError: (errno, msg) {
+          loginResult = null;
+          setError(errno, message: msg);
+        });
+
+  }
 }

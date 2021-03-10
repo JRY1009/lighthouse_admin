@@ -24,7 +24,9 @@ class MainModel extends ViewStateModel {
     UserEventController userEventController = Get.find<UserEventController>();
     userEventDisposer = userEventController.addListener(() {
       if (userEventController.state == UserEventState.logout) {
-        Get.offAllNamed(Routers.loginPage);
+        Future.delayed(new Duration(milliseconds: 200), () {
+          Get.offAllNamed(Routers.loginPage);
+        });
       }
     });
 
