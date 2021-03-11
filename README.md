@@ -4,6 +4,7 @@ Flutter版后台管理系统
 
 ## 实现内容
 
+* 全平台适配，Web、Android、iOS、Windows、macos
 * 基于`getX` 的路由管理
 * 基于`getX` 的mvvm模式 状态管理
 * 基于`dio` 的请求封装
@@ -43,3 +44,24 @@ http://www.jerryplay.top/lhadmin
 
     flutter build web
 
+
+## 桌面平台支持
+
+    flutter config --enable-windows-desktop
+    flutter config --enable-macos-desktop 
+    flutter config --enable-linux-desktop
+
+    flutter create .
+
+    flutter run -d windows
+    flutter run -d macos 
+    flutter run -d linux
+    
+    flutter build windows
+    flutter build macos 
+    flutter build linux
+
+备注：macos下添加以下配置到 `macos/Runner/DebugProfile.entitlements` 文件，解决http请求失败问题
+
+    <key>com.apple.security.network.client</key>
+    <true/>

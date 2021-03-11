@@ -202,7 +202,7 @@ class _LoginPageState extends State<LoginPage> with BasePageMixin<LoginPage> {
 //                    ))
                     child: Container(
                         alignment: Alignment.bottomCenter,
-                        child: SelectableText('没账号？用这个 Account：legend9999@126.com / Password：lizhiwei1234',
+                        child: SelectableText('legend9999@126.com / lizhiwei1234',
                             maxLines: 1,
                             strutStyle: StrutStyle(forceStrutHeight: true, height:1, leading: 0.5),
                             style: TextStyles.textGray800_w400_12)

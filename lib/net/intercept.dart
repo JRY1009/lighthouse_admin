@@ -27,6 +27,18 @@ class AuthInterceptor extends Interceptor {
       options.headers[Apis.KEY_CHANNEL] = channel;
       options.headers[Apis.KEY_USER_TS] = timestamp;
 
+    } else if (DeviceUtil.isDesktop) {
+      String version = '1.0.0';
+      String language = WidgetsBinding.instance.window.locale.toString();
+      String dev = DeviceUtil.isWindows ? 'windows' : DeviceUtil.isMacOS ? 'macos' : DeviceUtil.isLinux ? 'linux' : 'desktop';
+      String channel = 'official';
+
+      options.headers[Apis.KEY_VER] = version;
+      options.headers[Apis.KEY_DEV] = dev;
+      options.headers[Apis.KEY_LANGUAGE] = language;
+      options.headers[Apis.KEY_CHANNEL] = channel;
+      options.headers[Apis.KEY_USER_TS] = timestamp;
+
     } else {
 
       PackageInfo packageInfo = await PackageInfo.fromPlatform();

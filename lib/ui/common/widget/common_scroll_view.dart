@@ -77,7 +77,7 @@ class CommonScrollView extends StatelessWidget {
       );
 
     } else {
-      if (kIsWeb) {
+      if (kIsWeb || defaultTargetPlatform == TargetPlatform.windows || defaultTargetPlatform == TargetPlatform.macOS || defaultTargetPlatform == TargetPlatform.linux) {
         contents = SingleChildScrollView(
           padding: padding,
           physics: physics,
