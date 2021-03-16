@@ -13,7 +13,7 @@ Flutter版后台管理系统
 * 多语言
 
 ## 在线demo
-http://www.jerryplay.top/lhadmin
+[http://www.jerryplay.top/lhadmin](http://www.jerryplay.top/lhadmin)
 
 ## 使用的三方库
 
@@ -44,6 +44,11 @@ http://www.jerryplay.top/lhadmin
 
     flutter build web
 
+加载canvaskit.wasm过慢可使用国内镜像
+
+    --dart-define=FLUTTER_WEB_CANVASKIT_URL=https://cdn.jsdelivr.net/npm/canvaskit-wasm@0.24.0/bin/
+    --dart-define=FLUTTER_WEB_CANVASKIT_URL=https://unpkg.zhimg.com/canvaskit-wasm@0.24.0/bin/ 
+    --dart-define=FLUTTER_WEB_CANVASKIT_URL=https://npm.elemecdn.com/canvaskit-wasm@0.24.0/bin/
 
 ## 桌面平台支持
 
